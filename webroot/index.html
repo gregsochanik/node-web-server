@@ -35,8 +35,12 @@ function success(position) {
   mapcanvas.style.width = '560px';
     
   document.querySelector('article').appendChild(mapcanvas);
-  
+    
   var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+  var outputCoords = document.querySelector('#locationCoords');
+  outputCoords.innerHTML = "You are at lat: "+position.coords.latitude + " long:"+ position.coords.longitude;
+  
+  console.log(latlng);
   var myOptions = {
     zoom: 15,
     center: latlng,
@@ -67,6 +71,8 @@ if (navigator.geolocation) {
   error('not supported');
 }
 
-</script></section>
+</script>
+<div id="locationCoords"></div>
+</section>
 </body>
 </html>
